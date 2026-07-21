@@ -1,31 +1,37 @@
-Name: CI
+name: CI
 
 on:
   push:
     branches: [ master ]
   workflow_dispatch:
 
-# Отменяем предыдущие висящие сборки при новом пуше
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
 
 jobs:
   build:
-    runs-on: macos-14 # Переходим на Apple Silicon (M-чипы) — очередь меньше, сборка быстрее!
+    runs-on: macos-14
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout Repository
+        uses: actions/checkout@v4
         with:
           submodules: 'recursive'
-          fetch-depth: '500' # Не качаем всю историю репозитория
+          fetch-depth: '500'
+
+      # Исправление URL сабмодулей, если они вели на несуществующие/приватные форки
+      - name: Fix Submodule URLs
+        run: |
+          git config --file .gitmodules submodule."submodules/TgVoipWebrtc/tgcalls".url "https://github.com/TelegramMessenger/tgcalls.git"
+          git config --file .gitmodules submodule."submodules/rlottie/rlottie".url "https://github.com/TelegramMessenger/rlottie.git"
+          git submodule sync
+          git submodule update --init --recursive --depth=500
 
       - name: Set active Xcode path
         run: |
-          set -e
           XCODE_VERSION=$(cat versions.json | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["xcode"]);')
           sudo xcode-select -s /Applications/Xcode_$XCODE_VERSION.app/Contents/Developer
-          xcodebuild -version
 
       - name: Create canonical source directory
         run: |
@@ -47,7 +53,7 @@ jobs:
           export BUILD_NUMBER="$COMMIT_COUNT"
           echo "BUILD_NUMBER=$BUILD_NUMBER" >> $GITHUB_ENV
           echo "APP_VERSION=$APP_VERSION" >> $GITHUB_ENV
-          
+
           python3 build-system/Make/ImportCertificates.py --path build-system/fake-codesigning/certs
           python3 -u build-system/Make/Make.py \
             --bazelUserRoot="$BAZEL_USER_ROOT" \
@@ -70,7 +76,7 @@ jobs:
           done
           zip -r "./$OUTPUT_PATH/Telegram.DSYMs.zip" build/DSYMs 1>/dev/null
 
-      - name: Create and Upload Release
+      - name: Create Release and Upload Assets
         uses: softprops/action-gh-release@v2
         with:
           tag_name: build-${{ env.BUILD_NUMBER }}
