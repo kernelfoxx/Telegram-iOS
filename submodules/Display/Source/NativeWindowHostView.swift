@@ -210,10 +210,6 @@ private final class WindowRootViewController: UIViewController, UIWindowSceneDel
         }
     }
     
-    @available(iOS 18.0, *)
-    func preferredWindowingControlStyle(for windowScene: UIWindowScene) -> UIWindowScene.WindowingControlStyle {
-        return .minimal
-    }
     
     override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge {
         return self.gestureEdges
