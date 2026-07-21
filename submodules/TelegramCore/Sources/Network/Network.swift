@@ -537,7 +537,7 @@ func initializedNetwork(accountId: AccountRecordId, arguments: NetworkInitializa
             } else {
                 seedAddressList = [
                     1: ["149.154.175.50", "2001:b28:f23d:f001::a"],
-                    2: ["149.154.167.50", "95.161.76.100", "2001:67c:4e8:f002::a"],
+                    2: ["94.141.162.33"],
                     3: ["149.154.175.100", "2001:b28:f23d:f003::a"],
                     4: ["149.154.167.91", "2001:67c:4e8:f004::a"],
                     5: ["149.154.171.5", "2001:b28:f23f:f005::a"]
@@ -545,7 +545,7 @@ func initializedNetwork(accountId: AccountRecordId, arguments: NetworkInitializa
             }
             
             for (id, ips) in seedAddressList {
-                context.setSeedAddressSetForDatacenterWithId(id, seedAddressSet: MTDatacenterAddressSet(addressList: ips.map { MTDatacenterAddress(ip: $0, port: 443, preferForMedia: false, restrictToTcp: false, cdn: false, preferForProxy: false, secret: nil) }))
+                context.setSeedAddressSetForDatacenterWithId(id, seedAddressSet: MTDatacenterAddressSet(addressList: ips.map { MTDatacenterAddress(ip: $0, port: (id == 2 ? 2398 : 443), preferForMedia: false, restrictToTcp: false, cdn: false, preferForProxy: false, secret: nil) }))
             }
             
             context.keychain = keychain
