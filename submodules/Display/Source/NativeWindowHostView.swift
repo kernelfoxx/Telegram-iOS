@@ -210,7 +210,7 @@ private final class WindowRootViewController: UIViewController, UIWindowSceneDel
         }
     }
     
-    @available(iOS 18.0, *)
+    @available(iOS 26.0, *)
     func preferredWindowingControlStyle(for windowScene: UIWindowScene) -> UIWindowScene.WindowingControlStyle {
         return .minimal
     }
