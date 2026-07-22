@@ -610,8 +610,8 @@ private final class PremiumGiftScreenContentComponent: CombinedComponent {
                     let controller = controller() as? PremiumGiftScreen, let navigationController = controller.navigationController as? NavigationController {
                     if url.hasPrefix("https://apps.apple.com/account/subscriptions") {
                         controller.context.sharedContext.applicationBindings.openSubscriptions()
-                    } else if url.hasPrefix("https://") || url.hasPrefix("tg://") {
-                        controller.context.sharedContext.openExternalUrl(context: controller.context, urlContext: .generic, url: url, forceExternal: !url.hasPrefix("tg://") && !url.contains("?start="), presentationData: controller.context.sharedContext.currentPresentationData.with({$0}), navigationController: nil, dismissInput: {})
+                    } else if url.hasPrefix("https://") || url.hasPrefix("rg://") {
+                        controller.context.sharedContext.openExternalUrl(context: controller.context, urlContext: .generic, url: url, forceExternal: !url.hasPrefix("rg://") && !url.contains("?start="), presentationData: controller.context.sharedContext.currentPresentationData.with({$0}), navigationController: nil, dismissInput: {})
                     } else {
                         let context = controller.context
                         let signal: Signal<ResolvedUrl, NoError>?

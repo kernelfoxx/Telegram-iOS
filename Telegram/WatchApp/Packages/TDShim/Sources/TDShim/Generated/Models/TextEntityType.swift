@@ -250,7 +250,7 @@ public struct TextEntityTypePreCode: Codable, Equatable, Hashable {
 /// A text description shown instead of a raw URL
 public struct TextEntityTypeTextUrl: Codable, Equatable, Hashable {
 
-    /// HTTP or tg:// URL to be opened when the link is clicked
+    /// HTTP or rg:// URL to be opened when the link is clicked
     public let url: String
 
 

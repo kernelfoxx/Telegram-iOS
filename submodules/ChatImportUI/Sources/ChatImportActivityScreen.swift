@@ -480,7 +480,7 @@ public final class ChatImportActivityScreen: ViewController {
                     
                     if let application = UIApplication.value(forKeyPath: #keyPath(UIApplication.shared)) as? UIApplication {
                         let selector = NSSelectorFromString("openURL:")
-                        let url = URL(string: "tg://localpeer?id=\(controller.peerId.toInt64())")!
+                        let url = URL(string: "rg://localpeer?id=\(controller.peerId.toInt64())")!
                         application.perform(selector, with: url)
                     }
                 }

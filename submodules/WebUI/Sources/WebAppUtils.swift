@@ -14,14 +14,14 @@ func makeWebAppTelegramLink(pathFull: String) -> String? {
         return nil
     }
     
-    let urlString = "https://t.me\(pathFull)"
+    let urlString = "https://rgx.me\(pathFull)"
     guard let url = URL(string: urlString) else {
         return nil
     }
     guard url.scheme?.lowercased() == "https" else {
         return nil
     }
-    guard url.host?.lowercased() == "t.me" else {
+    guard url.host?.lowercased() == "rgx.me" else {
         return nil
     }
     guard url.user == nil, url.password == nil, url.fragment == nil else {

@@ -40,7 +40,7 @@ final class RTFConversionTests: XCTestCase {
         }, ["one", "two"])
     }
 
-    // MARK: Custom emoji cross-app via tg://emoji?id= (spec addendum 2026-06-24)
+    // MARK: Custom emoji cross-app via rg://emoji?id= (spec addendum 2026-06-24)
 
     private func emojiRun(id: String, alt: String?) -> TextRun {
         TextRun(text: "\u{FFFC}",
@@ -57,14 +57,14 @@ final class RTFConversionTests: XCTestCase {
         let link = s.attribute(.link, at: 0, effectiveRange: nil)
         let urlString = (link as? URL)?.absoluteString ?? (link as? String)
         // id carried in the marker URL (a `&n=` per-emoji de-dup suffix may follow — see import tests)
-        XCTAssertEqual(urlString?.hasPrefix("tg://emoji?id=12345"), true)
+        XCTAssertEqual(urlString?.hasPrefix("rg://emoji?id=12345"), true)
     }
 
     func test_import_emojiMarkerLink_reconstructsSingleObjectReplacementRun() throws {
-        // RTF carrying a tg://emoji?id= hyperlink on ":star:" text (what another app would round-trip).
+        // RTF carrying a rg://emoji?id= hyperlink on ":star:" text (what another app would round-trip).
         let attr = NSAttributedString(string: ":star:", attributes: [
             .font: UIFont.systemFont(ofSize: 17),
-            .link: URL(string: "tg://emoji?id=99")!,
+            .link: URL(string: "rg://emoji?id=99")!,
         ])
         let data = try attr.data(from: NSRange(location: 0, length: attr.length),
                                  documentAttributes: [.documentType: NSAttributedString.DocumentType.rtf])
@@ -137,7 +137,7 @@ final class RTFConversionTests: XCTestCase {
         let rtf = RTFConversion.inlineRTF(runs, mono: false, emojiSeq: &seq)
         XCTAssertTrue(rtf.contains("\\b "))                                    // bold toggle
         XCTAssertTrue(rtf.contains("HYPERLINK \"https://x.test\""))            // link field
-        XCTAssertTrue(rtf.contains("HYPERLINK \"tg://emoji?id=7&n=0\""))       // emoji marker (first dedup seq)
+        XCTAssertTrue(rtf.contains("HYPERLINK \"rg://emoji?id=7&n=0\""))       // emoji marker (first dedup seq)
         XCTAssertTrue(rtf.contains(":x:"))                                     // emoji altText is the field text
         XCTAssertEqual(seq, 1)                                                 // emoji consumed one dedup seq
     }

@@ -1141,7 +1141,7 @@ private func instantPageNeedsRichLayout(_ blocks: [InstantPageBlock]) -> Bool {
 }
 
 // Rewrites each `ChatTextInputAttributes.customEmoji` run in the attributed
-// input as a `[<alt>](tg://emoji?id=<fileId>)` markdown link, leaving all other
+// input as a `[<alt>](rg://emoji?id=<fileId>)` markdown link, leaving all other
 // text (and its markdown syntax) verbatim. With no custom emoji present this
 // returns `attributedText.string` unchanged, so non-emoji messages are
 // unaffected. The marker is intercepted post-parse in markdownInlineContent.
@@ -1168,7 +1168,7 @@ private func markdownSourceInjectingCustomEmojiMarkers(_ attributedText: NSAttri
 // regular entity path) for plain text, pre-iOS-15, oversize markdown, or
 // markdown that maps cleanly onto entities.
 public func richMarkdownAttributeIfNeeded(context: AccountContext, attributedText: NSAttributedString) -> RichTextMessageAttribute? {
-    // Custom emoji are rewritten to `[<alt>](tg://emoji?id=...)` link markers
+    // Custom emoji are rewritten to `[<alt>](rg://emoji?id=...)` link markers
     // before classification + parse; the markers are intercepted back into
     // .textCustomEmoji in markdownInlineContent. A link is entity-expressible,
     // so an emoji-only message still classifies as not-rich (and falls through

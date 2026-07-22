@@ -138,7 +138,7 @@ public indirect enum InlineKeyboardButtonType: Codable, Equatable, Hashable {
 /// A button that opens a specified URL
 public struct InlineKeyboardButtonTypeUrl: Codable, Equatable, Hashable {
 
-    /// HTTP or tg:// URL to open. If the link is of the type internalLinkTypeWebApp, then the button must be marked as a Web App button
+    /// HTTP or rg:// URL to open. If the link is of the type internalLinkTypeWebApp, then the button must be marked as a Web App button
     public let url: String
 
 

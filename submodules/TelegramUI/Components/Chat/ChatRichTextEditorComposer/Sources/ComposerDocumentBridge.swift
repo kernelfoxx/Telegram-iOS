@@ -6,7 +6,7 @@ import TextFormat
 
 /// Pure bidirectional bridge between the chat composer's `ChatTextInputAttributes`-keyed
 /// `NSAttributedString` and the RichTextEditor `Document` model. Covers: body/quote paragraphs +
-/// inline styles + spoiler + link + mention/date (via tg:// link schemes) + custom emoji (EmojiRef)
+/// inline styles + spoiler + link + mention/date (via rg:// link schemes) + custom emoji (EmojiRef)
 /// + code blocks (`.Pre`, as a first-class `Block.code` — no degradation to body).
 enum ComposerDocumentBridge {
     /// composer attributed string → Document (host-push: initial load / draft restore / edit).

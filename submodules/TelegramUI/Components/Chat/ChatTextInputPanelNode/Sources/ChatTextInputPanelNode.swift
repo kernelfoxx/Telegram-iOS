@@ -5501,12 +5501,12 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
         }
 
         // Rich-message markdown copied to the clipboard is plain text containing
-        // `[<alt>](tg://emoji?id=<fileId>)` emoji markers (no RTF/private type).
+        // `[<alt>](rg://emoji?id=<fileId>)` emoji markers (no RTF/private type).
         // Reattach those markers as live custom-emoji attributes so the field
         // shows the animated emoji (matching the edit-load reconstruction). Only
         // taken when a marker actually converted, so ordinary text pastes are
         // unaffected and fall through to default paste.
-        if attributedString == nil, let plainText = pasteboard.string, plainText.contains("tg://emoji?id=") {
+        if attributedString == nil, let plainText = pasteboard.string, plainText.contains("rg://emoji?id=") {
             let reattached = chatInputTextWithReattachedCustomEmoji(plainText)
             if reattached.string != plainText {
                 attributedString = reattached

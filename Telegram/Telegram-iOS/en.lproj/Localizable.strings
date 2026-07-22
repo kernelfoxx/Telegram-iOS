@@ -16377,7 +16377,7 @@ Error: %8$@";
 
 "ChatList.RemoveFolderConfirmationTitle" = "Remove %@?";
 
-"SocksProxySetup.QrCode.TgLink" = "tg:// link";
+"SocksProxySetup.QrCode.TgLink" = "rg:// link";
 "SocksProxySetup.QrCode.TMeLink" = "t.me link";
 
 "WebBrowser.OpenLinksInfo" = "Open links inside Telegram instead of your default browser for more privacy.";

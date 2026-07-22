@@ -127,7 +127,7 @@ struct QrLoginContent: View {
 }
 
 #if DEBUG
-private let qrPreviewLink = "tg://login?token=AQAAAExampleTokenForPreviewRendering123456"
+private let qrPreviewLink = "rg://login?token=AQAAAExampleTokenForPreviewRendering123456"
 
 #Preview("Normal") {
     QrLoginContent(link: qrPreviewLink, isTestDc: false, errorMessage: nil)

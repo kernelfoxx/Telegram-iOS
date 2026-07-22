@@ -3,15 +3,15 @@ import Foundation
 /// The private markdown-link URL that carries a custom emoji's file id between
 /// the send path and the rich-message renderer. Shared by the forward
 /// (compose/send) path and the reverse (copy/edit) converters so the encode and
-/// decode cannot drift. Format: a markdown link `[<alt>](tg://emoji?id=<fileId>)`.
+/// decode cannot drift. Format: a markdown link `[<alt>](rg://emoji?id=<fileId>)`.
 public func customEmojiMarkdownURL(fileId: Int64) -> String {
-    return "tg://emoji?id=\(fileId)"
+    return "rg://emoji?id=\(fileId)"
 }
 
 /// Backslash-escapes only the characters that would break a marker link's
 /// display text (the `alt`): backslash, the link-text brackets, and newline.
 /// Minimal by design — the forward CommonMark parser unescapes these, so the
-/// alt round-trips. Shared by every site that emits a `[<alt>](tg://emoji?id=…)`
+/// alt round-trips. Shared by every site that emits a `[<alt>](rg://emoji?id=…)`
 /// marker so the escaping cannot drift between encoders.
 public func escapeCustomEmojiMarkdownAlt(_ string: String) -> String {
     var result = ""
@@ -28,26 +28,26 @@ public func escapeCustomEmojiMarkdownAlt(_ string: String) -> String {
     return result
 }
 
-/// Parses the file id out of a `tg://emoji?id=<fileId>` marker URL.
+/// Parses the file id out of a `rg://emoji?id=<fileId>` marker URL.
 /// Returns nil for any other URL (ordinary links flow through unchanged).
 public func parseCustomEmojiFileId(fromMarkdownURL url: String) -> Int64? {
-    let prefix = "tg://emoji?id="
+    let prefix = "rg://emoji?id="
     guard url.hasPrefix(prefix) else {
         return nil
     }
     return Int64(url.dropFirst(prefix.count))
 }
 
-/// Regex matching an emitted marker link: `[<alt>](tg://emoji?id=<digits>)`.
+/// Regex matching an emitted marker link: `[<alt>](rg://emoji?id=<digits>)`.
 /// `alt` is captured as group 1 (any run of non-`]` chars), the file id as group 2.
 private let customEmojiMarkerRegex = try? NSRegularExpression(
-    pattern: "\\[([^\\]]*)\\]\\(tg://emoji\\?id=(-?\\d+)\\)",
+    pattern: "\\[([^\\]]*)\\]\\(rg://emoji\\?id=(-?\\d+)\\)",
     options: []
 )
 
 /// Reverse of the forward normalization: takes reconstructed markdown source
 /// (e.g. from `markdownStringFromInstantPage`) and returns an attributed string
-/// where each `tg://emoji?id=` marker link has been turned back into a live
+/// where each `rg://emoji?id=` marker link has been turned back into a live
 /// `ChatTextInputAttributes.customEmoji` run (the alt text carrying a
 /// `ChatTextInputTextCustomEmojiAttribute`). Everything else stays verbatim
 /// markdown text. Used to populate the edit compose field so it shows the

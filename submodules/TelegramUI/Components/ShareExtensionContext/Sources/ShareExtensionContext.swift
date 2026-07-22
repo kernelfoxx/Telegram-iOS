@@ -683,7 +683,7 @@ public class ShareRootControllerImpl {
                                     }
                                     
                                     dispatchGroup.notify(queue: .main) {
-                                        self.openUrl("tg://shareStory?session=\(sessionId)")
+                                        self.openUrl("rg://shareStory?session=\(sessionId)")
                                     }
                                 }
                             }

@@ -504,7 +504,7 @@ private func characterAttributes(
     result.spoiler = attributes.spoiler
     result.formula = attributes.formula
     // The entity slot is mutually exclusive — emoji lands in `emoji`, mention/date/url in the shared `link`
-    // field as a `tg://` marker (mention/date) or the raw URL, symmetric with the forward classifier.
+    // field as a `rg://` marker (mention/date) or the raw URL, symmetric with the forward classifier.
     if let entity = attributes.entity {
         switch entity {
         case let .customEmoji(fileId, file, _):

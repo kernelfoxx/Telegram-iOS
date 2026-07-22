@@ -814,7 +814,7 @@ open class ChatMessageItemView: ListViewItemNode, ChatMessageItemNodeProtocol {
                     item.controllerInteraction.sendMessage(button.title, item.message.id)
                 case let .url(url):
                     var concealed = true
-                    if url.hasPrefix("tg://") {
+                    if url.hasPrefix("rg://") {
                         concealed = false
                     }
                 item.controllerInteraction.openUrl(ChatControllerInteraction.OpenUrl(url: url, concealed: concealed, progress: progress))

@@ -142,7 +142,7 @@ final class BotCheckoutWebInteractionControllerNode: ViewControllerTracingNode, 
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         if case let .externalVerification(completion) = self.intent, let host = navigationAction.request.url?.host {
-            if host == "t.me" || host == "telegram.me" {
+            if host == "rgx.me" {
                 decisionHandler(.cancel)
                 completion(true)
             } else {

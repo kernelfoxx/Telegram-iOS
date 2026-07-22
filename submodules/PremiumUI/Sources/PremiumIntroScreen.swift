@@ -2906,7 +2906,7 @@ private final class PremiumIntroScreenContentComponent: CombinedComponent {
                         if let url = attributes[NSAttributedString.Key(rawValue: TelegramTextAttributes.URL)] as? String, let controller = controller() as? PremiumIntroScreen, let context = controller.context, let navigationController = controller.navigationController as? NavigationController {
                             if url.hasPrefix("https://apps.apple.com/account/subscriptions") {
                                 context.sharedContext.applicationBindings.openSubscriptions()
-                            } else if url.hasPrefix("https://") || url.hasPrefix("tg://") {
+                            } else if url.hasPrefix("https://") || url.hasPrefix("rg://") {
                                 context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: url, forceExternal: false, presentationData: presentationData, navigationController: navigationController, dismissInput: {})
                             } else {
                                 let signal: Signal<ResolvedUrl, NoError>?

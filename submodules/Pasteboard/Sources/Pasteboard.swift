@@ -12,7 +12,7 @@ private func rtfStringWithAppliedEntities(_ text: String, entities: [MessageText
     var index = 0
     test.enumerateAttribute(ChatTextInputAttributes.customEmoji, in: NSRange(location: 0, length: sourceString.length), using: { value, range, _ in
         if let value = value as? ChatTextInputTextCustomEmojiAttribute {
-            test.addAttribute(NSAttributedString.Key.link, value: URL(string: "tg://emoji?id=\(value.fileId)&t=\(index)")!, range: range)
+            test.addAttribute(NSAttributedString.Key.link, value: URL(string: "rg://emoji?id=\(value.fileId)&t=\(index)")!, range: range)
             index += 1
         }
     })
@@ -277,7 +277,7 @@ public func chatInputStateStringFromRTF(_ data: Data, type: NSAttributedString.D
     if let attributedString = try? NSAttributedString(data: data, options: [NSAttributedString.DocumentReadingOptionKey.documentType: type], documentAttributes: nil) {
         let updatedString = NSMutableAttributedString(attributedString: attributedString)
         updatedString.enumerateAttribute(NSAttributedString.Key.link, in: NSRange(location: 0, length: attributedString.length), using: { value, range, _ in
-            if let url = value as? URL, url.scheme == "tg", url.host == "emoji" {
+            if let url = value as? URL, url.scheme == "rg", url.host == "emoji" {
                 var emojiId: Int64?
                 if let queryItems = URLComponents(string: url.absoluteString)?.queryItems {
                     for item in queryItems {

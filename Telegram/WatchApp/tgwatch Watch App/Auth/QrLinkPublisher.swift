@@ -6,7 +6,7 @@ import Foundation
 /// Field-name contract is shared with the CLI; do not rename without updating
 /// `tools/tgwatch-populate/Sources/tgwatch-populate/QrLogin.swift`.
 struct QrLinkEnvelope: Codable, Equatable {
-    /// Raw `tg://login?token=…` string from TDLib. Not URL-encoded further.
+    /// Raw `rg://login?token=…` string from TDLib. Not URL-encoded further.
     let link: String
     /// Mirrors `TDClient.useTestDc` so the CLI can refuse a prod-DC envelope it
     /// cannot confirm (CLI populate accounts are test-DC only).

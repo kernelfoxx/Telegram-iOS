@@ -80,7 +80,7 @@ final class RTFImportTests: XCTestCase {
     }
 
     func test_emojiMarkerField_becomesEmojiRun() {
-        let d = doc("{\\rtf1 {\\field{\\*\\fldinst HYPERLINK \"tg://emoji?id=42&n=0\"}{\\fldrslt :star:}}}")
+        let d = doc("{\\rtf1 {\\field{\\*\\fldinst HYPERLINK \"rg://emoji?id=42&n=0\"}{\\fldrslt :star:}}}")
         let r = paras(d).first?.runs.first { $0.attributes.emoji != nil }
         XCTAssertEqual(r?.text, "\u{FFFC}")
         XCTAssertEqual(r?.attributes.emoji?.id, "42")

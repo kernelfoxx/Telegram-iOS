@@ -319,11 +319,11 @@ final class ChatbotSetupScreenComponent: Component {
                     }
                     
                     var cleanQuery = query
-                    if let url = URL(string: cleanQuery), url.host == "t.me" {
+                    if let url = URL(string: cleanQuery), url.host == "rgx.me" {
                         if url.pathComponents.count > 1 {
                             cleanQuery = url.pathComponents[1]
                         }
-                    } else if let url = URL(string: "https://\(cleanQuery)"), url.host == "t.me" {
+                    } else if let url = URL(string: "https://\(cleanQuery)"), url.host == "rgx.me" {
                         if url.pathComponents.count > 1 {
                             cleanQuery = url.pathComponents[1]
                         }

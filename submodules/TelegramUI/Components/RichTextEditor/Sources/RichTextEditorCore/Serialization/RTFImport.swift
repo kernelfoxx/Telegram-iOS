@@ -46,8 +46,8 @@ final class RTFDocumentParser {
     private var pendingFieldURL: String?     // URL parsed from fldinst, used during fldrslt
     private var resultURL: String?           // active link URL while inside fldrslt
 
-    // Custom emoji tg:// URL prefix (keep in sync with TextFormat/CustomEmojiMarkdownMarker.swift).
-    private static let emojiPrefix = "tg://emoji?id="
+    // Custom emoji rg:// URL prefix (keep in sync with TextFormat/CustomEmojiMarkdownMarker.swift).
+    private static let emojiPrefix = "rg://emoji?id="
 
     // Current paragraph being built.
     private var runs: [TextRun] = []
@@ -172,7 +172,7 @@ final class RTFDocumentParser {
 
             // Check if we're closing the \fldrslt group.
             if state.inFieldResult && stack.count == fldRsltDepth {
-                // If the resultURL is a tg://emoji marker, convert the accumulated
+                // If the resultURL is a rg://emoji marker, convert the accumulated
                 // link run to an emoji run.
                 let closingURL = resultURL
                 resultURL = nil
@@ -354,7 +354,7 @@ final class RTFDocumentParser {
         return url.isEmpty ? nil : url
     }
 
-    /// If `url` is a `tg://emoji?id=<id>` marker, returns the id (up to first `&`).
+    /// If `url` is a `rg://emoji?id=<id>` marker, returns the id (up to first `&`).
     private func emojiID(from url: String) -> String? {
         guard url.hasPrefix(Self.emojiPrefix) else { return nil }
         var id = String(url.dropFirst(Self.emojiPrefix.count))

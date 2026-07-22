@@ -9,9 +9,9 @@ enum RTFConversion {
     // hyperlinked to this marker (the file id survives; import reconstructs the emoji) — symmetric with how
     // mentions/dates already round-trip as links. Replicated locally because the RichTextEditor package is
     // standalone (no TextFormat dependency); keep the format in sync with the canonical
-    // submodules/TextFormat/Sources/CustomEmojiMarkdownMarker.swift — `tg://emoji?id=<fileId>`.
-    private static let emojiMarkerPrefix = "tg://emoji?id="
-    /// `tg://emoji?id=<id>&n=<seq>`. The `&n=` suffix is a per-export sequence number that makes EVERY
+    // submodules/TextFormat/Sources/CustomEmojiMarkdownMarker.swift — `rg://emoji?id=<fileId>`.
+    private static let emojiMarkerPrefix = "rg://emoji?id="
+    /// `rg://emoji?id=<id>&n=<seq>`. The `&n=` suffix is a per-export sequence number that makes EVERY
     /// emoji's URL unique, so NSAttributedString/RTF can't coalesce two adjacent identical emoji
     /// (same id + altText) into one run and lose the second on import. The canonical id is everything
     /// between `id=` and the first `&`.
@@ -197,7 +197,7 @@ enum RTFConversion {
             if let s = dict[.strikethroughStyle] as? Int, s != 0 { ca.strikethrough = true }
             let linkString = (dict[.link] as? URL)?.absoluteString ?? (dict[.link] as? String)
             if let linkString, let emojiID = emojiID(fromMarkerURL: linkString) {
-                // A tg://emoji?id= marker → reconstruct a single-U+FFFC custom emoji run (the model
+                // A rg://emoji?id= marker → reconstruct a single-U+FFFC custom emoji run (the model
                 // invariant: one object-replacement char per emoji), altText = the display text. A fresh
                 // instanceID matches the editor's own emoji-insert path (BlockID.generate()).
                 ca.emoji = EmojiRef(id: emojiID, instanceID: BlockID.generate().rawValue, altText: text)
