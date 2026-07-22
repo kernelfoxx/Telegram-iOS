@@ -63,7 +63,7 @@ jobs:
             --buildNumber="$BUILD_NUMBER" \
             --continueOnError
 
-          # Исправленный блок копирования IPA
+          # Копирование артефактов
           OUTPUT_PATH="build/artifacts"
           rm -rf "$OUTPUT_PATH"
           mkdir -p "$OUTPUT_PATH"
@@ -84,11 +84,12 @@ jobs:
 
           if [ "$IPA_FOUND" = false ]; then
             echo "❌ ERROR: Telegram.ipa not found!"
-            ls -la bazel-bin/Telegram/ 2>/dev/null || echo "Directory not found"
-            ls -la bazel-out/applebin_ios-*/bin/Telegram/ 2>/dev/null || echo "No bazel-out match"
+            ls -la bazel-bin/Telegram/ 2>/dev/null || echo "bazel-bin not found"
+            ls -la bazel-out/applebin_ios-*/bin/Telegram/ 2>/dev/null || echo "No bazel-out"
             exit 1
           fi
 
+          # DSYMs
           mkdir -p build/DSYMs
           for f in bazel-out/applebin_ios-ios_arm*-opt-ST-*/bin/Telegram/*.dSYM; do
             cp -R "$f" build/DSYMs/ 2>/dev/null || true
