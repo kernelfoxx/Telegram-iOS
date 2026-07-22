@@ -20,7 +20,6 @@ jobs:
           submodules: 'recursive'
           fetch-depth: '500'
 
-      # Исправление URL сабмодулей, если они вели на несуществующие/приватные форки
       - name: Fix Submodule URLs
         run: |
           git config --file .gitmodules submodule."submodules/TgVoipWebrtc/tgcalls".url "https://github.com/TelegramMessenger/tgcalls.git"
@@ -64,18 +63,39 @@ jobs:
             --buildNumber="$BUILD_NUMBER" \
             --continueOnError
 
+          # Исправленный блок копирования IPA
           OUTPUT_PATH="build/artifacts"
           rm -rf "$OUTPUT_PATH"
           mkdir -p "$OUTPUT_PATH"
-          for f in bazel-out/applebin_ios-ios_arm*-opt-ST-*/bin/Telegram/Telegram.ipa; do
-            cp "$f" $OUTPUT_PATH/
+
+          echo "🔍 Looking for IPA file..."
+          shopt -s nullglob
+          IPA_FOUND=false
+          for f in bazel-bin/Telegram/Telegram.ipa \
+                   bazel-out/applebin_ios-*/bin/Telegram/Telegram.ipa \
+                   bazel-out/applebin_ios-ios_arm*-opt-ST-*/bin/Telegram/Telegram.ipa; do
+            if [ -f "$f" ]; then
+              cp -v "$f" "$OUTPUT_PATH/"
+              echo "✅ Successfully copied: $f"
+              IPA_FOUND=true
+              break
+            fi
           done
+
+          if [ "$IPA_FOUND" = false ]; then
+            echo "❌ ERROR: Telegram.ipa not found!"
+            ls -la bazel-bin/Telegram/ 2>/dev/null || echo "Directory not found"
+            ls -la bazel-out/applebin_ios-*/bin/Telegram/ 2>/dev/null || echo "No bazel-out match"
+            exit 1
+          fi
 
           mkdir -p build/DSYMs
           for f in bazel-out/applebin_ios-ios_arm*-opt-ST-*/bin/Telegram/*.dSYM; do
-            cp -R "$f" build/DSYMs/
+            cp -R "$f" build/DSYMs/ 2>/dev/null || true
           done
-          zip -r "./$OUTPUT_PATH/Telegram.DSYMs.zip" build/DSYMs 1>/dev/null
+          if [ -d "build/DSYMs" ] && [ "$(ls -A build/DSYMs 2>/dev/null)" ]; then
+            zip -r "./$OUTPUT_PATH/Telegram.DSYMs.zip" build/DSYMs 1>/dev/null
+          fi
 
       - name: Create Release and Upload Assets
         uses: softprops/action-gh-release@v2
