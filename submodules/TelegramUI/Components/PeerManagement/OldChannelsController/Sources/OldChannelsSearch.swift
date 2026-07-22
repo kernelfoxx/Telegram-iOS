@@ -27,7 +27,7 @@ extension NavigationBarSearchContentNode: ItemListControllerSearchNavigationCont
     }
 }
 #else
-extension NavigationBarSearchContentNode: ItemListControllerSearchNavigationContentNode {
+extension NavigationBarSearchContentNode: @retroactive ItemListControllerSearchNavigationContentNode {
     public func activate() {
     }
     

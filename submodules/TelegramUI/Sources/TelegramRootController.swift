@@ -853,7 +853,7 @@ extension MediaEditorScreenImpl.Result: MediaEditorScreenResult {
     }
 }
 #else
-extension MediaEditorScreenImpl.Result: MediaEditorScreenResult {
+extension MediaEditorScreenImpl.Result: @retroactive MediaEditorScreenResult {
     public var target: Stories.PendingTarget {
         if let sendAsPeerId = self.options.sendAsPeerId {
             return .peer(sendAsPeerId)
