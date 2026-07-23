@@ -32,6 +32,13 @@ jobs:
           XCODE_VERSION=$(cat versions.json | python3 -c 'import json,sys;obj=json.load(sys.stdin);print(obj["xcode"]);')
           sudo xcode-select -s /Applications/Xcode_$XCODE_VERSION.app/Contents/Developer
 
+      - name: Clean stale Bazel cache (this runner is reused across runs; many past pushes cancelled in-progress builds and may have left corrupted cache entries)
+        run: |
+          set -x
+          BAZEL_USER_ROOT="/private/var/tmp/_bazel_containerhost"
+          cd "$GITHUB_WORKSPACE"
+          python3 -u build-system/Make/Make.py --bazelUserRoot="$BAZEL_USER_ROOT" clean || true
+
       - name: Create canonical source directory
         run: |
           set -x
