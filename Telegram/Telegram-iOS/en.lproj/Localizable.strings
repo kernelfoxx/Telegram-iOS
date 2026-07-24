@@ -496,7 +496,7 @@
 "Contacts.AccessDeniedHelpLandscape" = "Please go to your %@ Settings — Privacy — Contacts.\nThen select ON for ReynardGram.";
 "Contacts.AccessDeniedHelpPortrait" = "Please go to your %@ Settings — Privacy — Contacts. Then select ON for ReynardGram.";
 "Contacts.AccessDeniedHelpON" = "ON";
-"Contacts.InviteToReynardGram" = "Invite to ReynardGram";
+"Contacts.InviteToTelegram" = "Invite to ReynardGram";
 "Contacts.InviteFriends" = "Invite Friends";
 "Contacts.SelectAll" = "Select All";
 
@@ -2609,8 +2609,8 @@ Unused sets are archived when you add more.";
 "Conversation.HoldForAudio" = "Hold to record audio. Tap to switch to video.";
 "Conversation.HoldForVideo" = "Hold to record video. Tap to switch to audio.";
 
-"UserInfo.ReynardGramCall" = "ReynardGram Call";
-"UserInfo.ReynardGramVideoCall" = "ReynardGram Video Call";
+"UserInfo.TelegramCall" = "ReynardGram Call";
+"UserInfo.TelegramVideoCall" = "ReynardGram Video Call";
 "UserInfo.PhoneCall" = "Phone Call";
 
 "SharedMedia.CategoryMedia" = "Media";
@@ -2800,7 +2800,7 @@ Unused sets are archived when you add more.";
 
 "Contacts.PhoneNumber" = "Phone Number";
 "Contacts.AddPhoneNumber" = "Add %@";
-"Contacts.ShareReynardGram" = "Share ReynardGram";
+"Contacts.ShareTelegram" = "Share ReynardGram";
 
 "Conversation.ViewChannel" = "VIEW CHANNEL";
 "Conversation.ViewGroup" = "VIEW GROUP";
@@ -3258,7 +3258,7 @@ Unused sets are archived when you add more.";
 "AuthSessions.LoggedIn" = "Websites";
 "AuthSessions.LogOutApplications" = "Disconnect All Websites";
 "AuthSessions.LogOutApplicationsHelp" = "You can log in on websites that support signing in with ReynardGram.";
-"AuthSessions.LoggedInWithReynardGram" = "CONNECTED WEBSITES";
+"AuthSessions.LoggedInWithTelegram" = "CONNECTED WEBSITES";
 "AuthSessions.LogOut" = "Disconnect";
 "AuthSessions.Message" = "You allowed this bot to message you when you logged in on %@.";
 
@@ -3294,7 +3294,7 @@ Unused sets are archived when you add more.";
 
 "SocksProxySetup.ProxyType" = "TYPE";
 "SocksProxySetup.ProxySocks5" = "SOCKS5";
-"SocksProxySetup.ProxyReynardGram" = "MTProto";
+"SocksProxySetup.ProxyTelegram" = "MTProto";
 "SocksProxySetup.HostnamePlaceholder" = "Server";
 "SocksProxySetup.PortPlaceholder" = "Port";
 "SocksProxySetup.UsernamePlaceholder" = "Username";
@@ -3507,15 +3507,15 @@ Unused sets are archived when you add more.";
 "Passport.Address.ScansHelp" = "The document must contain your first and last name, your residential address, a stamp / barcode / QR code / logo, and issue date, no more than 3 months ago.";
 
 "Passport.Phone.Title" = "Phone Number";
-"Passport.Phone.UseReynardGramNumber" = "Use %@";
-"Passport.Phone.UseReynardGramNumberHelp" = "Use the same phone number as on ReynardGram.";
+"Passport.Phone.UseTelegramNumber" = "Use %@";
+"Passport.Phone.UseTelegramNumberHelp" = "Use the same phone number as on ReynardGram.";
 "Passport.Phone.EnterOtherNumber" = "OR ENTER NEW PHONE NUMBER";
 "Passport.Phone.Help" = "Note: You will receive a confirmation code on the phone number you provide.";
 "Passport.Phone.Delete" = "Delete Phone Number";
 
 "Passport.Email.Title" = "Email";
-"Passport.Email.UseReynardGramEmail" = "Use %@";
-"Passport.Email.UseReynardGramEmailHelp" = "Use the same address as on ReynardGram.";
+"Passport.Email.UseTelegramEmail" = "Use %@";
+"Passport.Email.UseTelegramEmailHelp" = "Use the same address as on ReynardGram.";
 "Passport.Email.EnterOtherEmail" = "OR ENTER NEW EMAIL ADDRESS";
 "Passport.Email.EmailPlaceholder" = "Enter your email address";
 "Passport.Email.Help" = "Note: You will receive a confirmation code to the email address you provide.";
@@ -3996,7 +3996,7 @@ Unused sets are archived when you add more.";
 "AttachmentMenu.WebSearch" = "Web Search";
 
 "Conversation.UnsupportedMediaPlaceholder" = "This message is not supported on your version of ReynardGram. Please update to the latest version.";
-"Conversation.UpdateReynardGram" = "UPDATE TELEGRAM";
+"Conversation.UpdateTelegram" = "UPDATE TELEGRAM";
 
 "Cache.LowDiskSpaceText" = "Your phone has run out of available storage. Please free some space to download or upload media.";
 
@@ -7559,7 +7559,7 @@ Sorry for the inconvenience.";
 "WebApp.RemoveConfirmationText" = "Remove **%@** from the attachment menu?";
 
 "Notifications.SystemTones" = "SYSTEM TONES";
-"Notifications.ReynardGramTones" = "TELEGRAM TONES";
+"Notifications.TelegramTones" = "TELEGRAM TONES";
 
 "Notifications.UploadSound" = "Upload Sound";
 "Notifications.MessageSoundInfo" = "Press and hold a short voice note or mp3 file in any chat and select \"Save for Notifications\". It will appear here.";
@@ -8112,8 +8112,8 @@ Sorry for the inconvenience.";
 "Login.EnterCodeSMSTitle" = "Enter Code";
 "Login.EnterCodeSMSText" = "We've sent an SMS with an activation code to your phone **%@**.";
 "Login.SendCodeAsSMS" = "Send the code as an SMS";
-"Login.EnterCodeReynardGramTitle" = "Enter Code";
-"Login.EnterCodeReynardGramText" = "We've sent the code to the **ReynardGram app** for %@ on your other device.";
+"Login.EnterCodeTelegramTitle" = "Enter Code";
+"Login.EnterCodeTelegramText" = "We've sent the code to the **ReynardGram app** for %@ on your other device.";
 "Login.AddEmailTitle" = "Add Email";
 "Login.AddEmailText" = "Please enter your valid email address to protect your account.";
 "Login.AddEmailPlaceholder" = "Enter your email";
@@ -10476,8 +10476,8 @@ Sorry for the inconvenience.";
 "GiftLink.Reason.Unclaimed" = "Incomplete Giveaway";
 "GiftLink.Date" = "Date";
 "GiftLink.NoRecipient" = "No recipient";
-"GiftLink.ReynardGramPremium_1" = "ReynardGram Premium for %@ month";
-"GiftLink.ReynardGramPremium_any" = "ReynardGram Premium for %@ months";
+"GiftLink.TelegramPremium_1" = "ReynardGram Premium for %@ month";
+"GiftLink.TelegramPremium_any" = "ReynardGram Premium for %@ months";
 "GiftLink.LinkHidden" = "Only the recipient can see the link.";
 
 "ChannelBoost.EnableColors" = "Enable Colors";
@@ -12271,19 +12271,19 @@ Sorry for the inconvenience.";
 "Chat.Context.Phone.CreateNewContact" = "Create New Contact";
 "Chat.Context.Phone.AddToExistingContact" = "Add to Existing Contact";
 "Chat.Context.Phone.SendMessage" = "Send Message";
-"Chat.Context.Phone.ReynardGramVoiceCall" = "ReynardGram Voice Call";
-"Chat.Context.Phone.ReynardGramVideoCall" = "ReynardGram Video Call";
-"Chat.Context.Phone.InviteToReynardGram" = "Invite to ReynardGram";
+"Chat.Context.Phone.TelegramVoiceCall" = "ReynardGram Voice Call";
+"Chat.Context.Phone.TelegramVideoCall" = "ReynardGram Video Call";
+"Chat.Context.Phone.InviteToTelegram" = "Invite to ReynardGram";
 "Chat.Context.Phone.CallViaCarrier" = "Call via Carrier";
 "Chat.Context.Phone.CopyNumber" = "Copy Number";
-"Chat.Context.Phone.NotOnReynardGram" = "This number is not on ReynardGram.";
+"Chat.Context.Phone.NotOnTelegram" = "This number is not on ReynardGram.";
 "Chat.Context.Phone.ViewProfile" = "View Profile";
 
 "Chat.Context.Username.SendMessage" = "Send Message";
 "Chat.Context.Username.OpenGroup" = "Open Group";
 "Chat.Context.Username.OpenChannel" = "Open Channel";
 "Chat.Context.Username.Copy" = "Copy Username";
-"Chat.Context.Username.NotOnReynardGram" = "This user doesn't exist on ReynardGram.";
+"Chat.Context.Username.NotOnTelegram" = "This user doesn't exist on ReynardGram.";
 
 "Chat.Context.Hashtag.Search" = "Search";
 "Chat.Context.Hashtag.Copy" = "Copy Hashtag";
@@ -12328,8 +12328,8 @@ Sorry for the inconvenience.";
 "Stars.Intro.Transaction.FragmentTopUp.Subtitle" = "via Fragment";
 "Stars.Intro.Transaction.FragmentWithdrawal.Title" = "Withdrawal";
 "Stars.Intro.Transaction.FragmentWithdrawal.Subtitle" = "via Fragment";
-"Stars.Intro.Transaction.ReynardGramAds.Title" = "Withdrawal";
-"Stars.Intro.Transaction.ReynardGramAds.Subtitle" = "via ReynardGram Ads";
+"Stars.Intro.Transaction.TelegramAds.Title" = "Withdrawal";
+"Stars.Intro.Transaction.TelegramAds.Subtitle" = "via ReynardGram Ads";
 "Stars.Intro.Transaction.Gift" = "Gift";
 "Stars.Intro.Transaction.ConvertedGift" = "Converted Gift";
 "Stars.Intro.Transaction.Unsupported.Title" = "Unsupported";
@@ -12378,8 +12378,8 @@ Sorry for the inconvenience.";
 "Stars.Transaction.FragmentTopUp.Subtitle" = "Fragment";
 "Stars.Transaction.FragmentWithdrawal.Title" = "Stars Withdrawal";
 "Stars.Transaction.FragmentWithdrawal.Subtitle" = "Fragment";
-"Stars.Transaction.ReynardGramAds.Title" = "Stars Withdrawal";
-"Stars.Transaction.ReynardGramAds.Subtitle" = "ReynardGram Ads";
+"Stars.Transaction.TelegramAds.Title" = "Stars Withdrawal";
+"Stars.Transaction.TelegramAds.Subtitle" = "ReynardGram Ads";
 "Stars.Transaction.Unsupported.Title" = "Unsupported";
 "Stars.Transaction.Refund" = "Refund";
 
@@ -12597,7 +12597,7 @@ Sorry for the inconvenience.";
 "Browser.ContextMenu.CopyLink" = "Copy Link";
 "Browser.ContextMenu.Share" = "Share";
 
-"WebBrowser.ReynardGram" = "ReynardGram";
+"WebBrowser.Telegram" = "ReynardGram";
 
 "Monetization.Proceeds.Ton.Info" = "GRAM from your total balance can be used for ads or withdrawn as rewards 3 days after they are earned.";
 "Monetization.Proceeds.Stars.Info" = "Stars from your total balance can be used for ads or withdrawn as rewards 21 days after they are earned.";
@@ -13192,13 +13192,13 @@ Sorry for the inconvenience.";
 "TopApps.Info.Text" = "This catalogue ranks mini apps based on their daily revenue, measured in Stars. To be listed, developers must set their main mini app in [@botfather]() (as described [here](https://core.telegram.org/bots/webapps#launching-the-main-mini-app)), have over **1,000** daily users, and earn a daily revenue above **1,000** Stars, based on weekly average.";
 "TopApps.Info.Done" = "Understood";
 
-"Stars.Intro.Transaction.ReynardGramBotApi.Title" = "Paid Broadcast";
-"Stars.Intro.Transaction.ReynardGramBotApi.Messages_1" = "%@ Message";
-"Stars.Intro.Transaction.ReynardGramBotApi.Messages_any" = "%@ Messages";
+"Stars.Intro.Transaction.TelegramBotApi.Title" = "Paid Broadcast";
+"Stars.Intro.Transaction.TelegramBotApi.Messages_1" = "%@ Message";
+"Stars.Intro.Transaction.TelegramBotApi.Messages_any" = "%@ Messages";
 
-"Stars.Transaction.ReynardGramBotApi.Title" = "Paid Broadcast";
-"Stars.Transaction.ReynardGramBotApi.Messages_1" = "%@ Message";
-"Stars.Transaction.ReynardGramBotApi.Messages_any" = "%@ Messages";
+"Stars.Transaction.TelegramBotApi.Title" = "Paid Broadcast";
+"Stars.Transaction.TelegramBotApi.Messages_1" = "%@ Message";
+"Stars.Transaction.TelegramBotApi.Messages_any" = "%@ Messages";
 
 "Monetization.Bot.Header" = "ReynardGram shares 50% of the revenue from ads displayed in your bot. [Learn More >]()";
 "Monetization.Bot.BalanceTitle" = "AVAILABLE BALANCE";
@@ -13903,11 +13903,11 @@ Sorry for the inconvenience.";
 "Stars.Intro.Transaction.PaidMessage_1" = "Fee for %@ Message";
 "Stars.Intro.Transaction.PaidMessage_any" = "Fee for %@ Messages";
 
-"Stars.Transaction.ReynardGramPremium_1" = "Premium for %@ Month";
-"Stars.Transaction.ReynardGramPremium_any" = "Premium for %@ Months";
+"Stars.Transaction.TelegramPremium_1" = "Premium for %@ Month";
+"Stars.Transaction.TelegramPremium_any" = "Premium for %@ Months";
 
-"Stars.Intro.Transaction.ReynardGramPremium_1" = "Premium for %@ Month";
-"Stars.Intro.Transaction.ReynardGramPremium_any" = "Premium for %@ Months";
+"Stars.Intro.Transaction.TelegramPremium_1" = "Premium for %@ Month";
+"Stars.Intro.Transaction.TelegramPremium_any" = "Premium for %@ Months";
 
 "Stars.Purchase.SendMessageInfo" = "Buy Stars to send a message to **%@**.";
 "Stars.Purchase.SendGroupMessageInfo" = "Buy Stars to send a message in **%@**.";
@@ -15005,7 +15005,7 @@ Sorry for the inconvenience.";
 
 "Gift.Value.DescriptionAveragePrice" = "This is the average sale price of **%@** on ReynardGram and Fragment over the past month.";
 "Gift.Value.DescriptionLastPriceFragment" = "This is the last price at which **%@** was last sold on Fragment.";
-"Gift.Value.DescriptionLastPriceReynardGram" = "This is the last price at which **%@** was last sold on ReynardGram.";
+"Gift.Value.DescriptionLastPriceTelegram" = "This is the last price at which **%@** was last sold on ReynardGram.";
 
 "Gift.Value.LastPriceInfo" = "**%1$@** is the last price for %2$@ gifts listed on ReynardGram and Fragment.";
 "Gift.Value.MinimumPriceInfo" = "**%1$@** is the floor price for %2$@ gifts listed on ReynardGram and Fragment.";
@@ -15017,7 +15017,7 @@ Sorry for the inconvenience.";
 "Gift.Value.LastPrice" = "Last Price";
 "Gift.Value.MinimumPrice" = "Minimum Price";
 "Gift.Value.AveragePrice" = "Average Price";
-"Gift.Value.ForSaleOnReynardGram" = "for sale on ReynardGram";
+"Gift.Value.ForSaleOnTelegram" = "for sale on ReynardGram";
 "Gift.Value.ForSaleOnFragment" = "for sale on Fragment";
 
 "Gift.View.Context.SetAsTheme" = "Set as Theme in...";
@@ -15147,7 +15147,7 @@ Error: %8$@";
 "Gift.UnavailableAction.Text" = "Transfer this gift to your ReynardGram account on Fragment to unlock this action.";
 "Gift.UnavailableAction.OpenFragment" = "Open Fragment";
 
-"Gift.Unique.ReynardGram" = "ReynardGram";
+"Gift.Unique.Telegram" = "ReynardGram";
 
 "VoiceChat.ContextEnableMessages" = "Enable Messages";
 "VoiceChat.ContextDisableMessages" = "Disable Messages";
@@ -15238,7 +15238,7 @@ Error: %8$@";
 "Gift.Auction.TimeLeftMinutes" = "{m}:{s} left";
 "Gift.Auction.ItemsBought_1" = "item bought";
 "Gift.Auction.ItemsBought_any" = "items bought";
-"Gift.Auction.ForSaleOnReynardGram" = "for sale on ReynardGram";
+"Gift.Auction.ForSaleOnTelegram" = "for sale on ReynardGram";
 "Gift.Auction.ForSaleOnFragment" = "for sale on Fragment";
 "Gift.Auction.AveragePriceInfo" = "**%1$@** is the average sale price for %2$@ gifts.";
 "Gift.Auction.Stars_1" = "%@ Star";
