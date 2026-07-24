@@ -1,0 +1,42 @@
+# Makefile target to build ONLY the debug dylib (for macOS w/ Xcode CLT).
+#
+# Usage:
+#     make -f Makefile.dylib
+#
+# Output: build/ReynardGramDebug.dylib (arm64 + arm64e, ad-hoc signed).
+
+SRC   := tools/ReynardGramDebug.m
+OUT   := build/ReynardGramDebug.dylib
+MIN   := 15.0
+SDK   := $(shell xcrun --sdk iphoneos --show-sdk-path)
+CLANG := $(shell xcrun --sdk iphoneos --find clang)
+
+.PHONY: dylib clean
+
+dylib: $(OUT)
+
+$(OUT): $(SRC)
+	@mkdir -p build
+	$(CLANG) -dynamiclib \
+	    -arch arm64 -arch arm64e \
+	    -isysroot "$(SDK)" \
+	    -miphoneos-version-min=$(MIN) \
+	    -fobjc-arc -fmodules -Os -g0 \
+	    -framework Foundation -framework UIKit \
+	    $(SRC) -o $(OUT)
+	@echo "==="
+	file $(OUT)
+	otool -L $(OUT)
+	@echo "==="
+	@if command -v ldid >/dev/null 2>&1; then \
+	    echo "[sign] ldid -S $(OUT)"; ldid -S $(OUT); \
+	else \
+	    CS=$$(xcrun --sdk iphoneos --find codesign); \
+	    echo "[sign] $$CS --force --sign - $(OUT)"; \
+	    $$CS --force --sign - --timestamp=none $(OUT); \
+	fi
+	codesign -dv $(OUT) 2>&1 || true
+	@echo "Built: $(OUT)"
+
+clean:
+	rm -rf build
